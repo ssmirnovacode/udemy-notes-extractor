@@ -91,5 +91,5 @@ const blob = new Blob([markdown], { type: "text/markdown" });
 const url = URL.createObjectURL(blob);
 const a = document.createElement("a");
 a.href = url;
-a.download = "udemy-notes.md";
+a.download = "input.md";
 a.click();
