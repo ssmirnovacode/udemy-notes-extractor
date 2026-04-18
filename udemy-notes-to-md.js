@@ -81,10 +81,7 @@ function htmlToMarkdown(element) {
 const notes = extractUdemyNotes().reverse();
 
 const markdown = notes
-  .map(
-    (n) =>
-      `## ${n.title}\n\n**Timestamp:** ${n.timestamp}\n\n${n.noteMarkdown}`,
-  )
+  .map((n) => `## ${n.title}\n${n.noteMarkdown}`)
   .join("\n\n---\n\n");
 
 const blob = new Blob([markdown], { type: "text/markdown" });

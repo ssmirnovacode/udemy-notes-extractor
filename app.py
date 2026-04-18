@@ -35,7 +35,7 @@ response = client.responses.create(
             "content": [
                 {
                     "type": "input_text",
-                    "text": "Improve and restructure these notes. Return markdown.",
+                    "text": "Improve and restructure these notes.  Remove the chapter numbers (they usually come after ## or ### markdown characters). Remove the timestamps information. Return markdown.",
                 },
                 {"type": "input_text", "text": md_content},
             ],
@@ -43,6 +43,8 @@ response = client.responses.create(
     ],
 )
 result_text = response.output[0].content[0].text
+
+result_text = result_text.replace("```markdown", "").replace("```", "")
 
 
 output_path = base_dir / "result.md"
